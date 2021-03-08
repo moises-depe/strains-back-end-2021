@@ -21,11 +21,11 @@ async function run() {
                     id SERIAL PRIMARY KEY NOT NULL,
                     name VARCHAR(512) NOT NULL,
                     race VARCHAR(512) NOT NULL,
-                    flavors ARRAY NOT NULL,
-                    positive ARRAY NOT NULL,
-                    negative ARRAY NOT NULL,
-                    medical ARRAY NOT NULL,
-                    description VARCHAR(512) NOT NULL,
+                    flavors TEXT[] NOT NULL,
+                    positive TEXT[] NOT NULL,
+                    negative TEXT[] NOT NULL,
+                    medical TEXT[] NOT NULL,
+                    description VARCHAR(1080) NOT NULL,
                     owner_id INTEGER NOT NULL REFERENCES users(id)
             );
         `);
