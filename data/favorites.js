@@ -2,6 +2,7 @@ module.exports = [
   {
     name: 'cool train',
     race: 'hybrid',
+    img: 'http://www.placekitten.com/300/300',
     flavors: ['earthy', 'pine'],
     positive: ['relaxed', 'happy', 'sleepy'],
     negative: ['dizzy'],
@@ -12,15 +13,17 @@ module.exports = [
   {
     name: 'happy times',
     race: 'indica',
+    img: 'http://www.placekitten.com/300/300',
     flavors: ['Spicy/Herbal', 'Pungent', 'Earthy'],
     positive: ['relaxed', 'happy', 'sleepy'],
     negative: ['dizzy', 'drymouth'],
     medical: ['stress', 'insomnia', 'depression'],
-    description: 'Alaskan Ice by Green House Seeds is a powerful sativa that crosses a euphoric White Widow hybrid with the energizing buzz of Haze. Frostlike resin blankets the buds in a promise of soaring psychoactivity, anchored only by its moderate CBD content. The intensity of this 70% sativa strain is recommended for evening consumption and unproductive weekends. Alaskan Ice is a slight variant of Moby Dick, but poses a greater challenge to growers; cultivators with the expertise to raise Alaskan Ice will be rewarded with a highly potent harvest of sour, spicy buds following a 9 week flowering period. The high resin content of Alaskan Ice has made this strain a favorite among hash producers and patients with severe symptoms."'
+    description: 'Alaskan Ice by Green House Seeds is a powerful sativa that crosses a euphoric White Widow hybrid with the energizing buzz of Haze. Frostlike resin blankets the buds in a promise of soaring psychoactivity, anchored only by its moderate CBD content. The intensity of this 70% sativa strain is recommended for evening consumption and unproductive weekends. Alaskan Ice is a slight variant of Moby Dick, but poses a greater challenge to growers; cultivators with the expertise to raise Alaskan Ice will be rewarded with a highly potent harvest of sour, spicy buds following a 9 week flowering period. The high resin content of Alaskan Ice has made this strain a favorite among hash producers and patients with severe symptoms.'
   },
   {
     name: 'african',
     race: 'sativa',
+    img: 'http://www.placekitten.com/300/300',
     flavors: ['earthy', 'pine'],
     positive: ['relaxed', 'happy', 'sleepy'],
     negative: ['dizzy'],

@@ -30,36 +30,71 @@ describe('app routes', () => {
     afterAll(done => {
       return client.end(done);
     });
+    const fave = {
+      name: 'hello',
+      race: 'hybrid',
+      img: 'http://www.placekitten.com/300/300',
+      flavors: ['blue', 'grape', 'dry'],
+      positive: ['happy', 'funny', 'cool'],
+      negative: ['sad', 'dizzy'],
+      medical: ['stress', 'insomnia'],
+      description: 'hello there'
+    };
 
-    test('returns animals', async() => {
+    const myfave = {
+      ...fave,
+      owner_id: 2,
+      id: 4,
+    };
 
-      const expectation = [
-        {
-          'id': 1,
-          'name': 'bessie',
-          'coolfactor': 3,
-          'owner_id': 1
-        },
-        {
-          'id': 2,
-          'name': 'jumpy',
-          'coolfactor': 4,
-          'owner_id': 1
-        },
-        {
-          'id': 3,
-          'name': 'spot',
-          'coolfactor': 10,
-          'owner_id': 1
-        }
-      ];
+    test('gets data from strain api', async() => {
+      const data = {
+        'id': 37,
+        'name': 'Alohaberry',
+        'race': 'hybrid',
+        'desc': 'Originating from the tropical islands of Hawaii, Alohaberry releases a pleasant aroma and taste of tropical berries. It is known for its unique sweet taste and because it is an equal hybrid, the effects are both mind and body. Flowering time for this plant is approximately 8-9 weeks.'
+      };
 
-      const data = await fakeRequest(app)
-        .get('/animals')
+      const test = await fakeRequest(app)
+        .get('/name')
         .expect('Content-Type', /json/)
         .expect(200);
 
-      expect(data.body).toEqual(expectation);
+      expect(data).toEqual(test.body[0]);
+
     });
+    test.only('make a new favorite', async() => {
+
+      const data = await fakeRequest(app)
+        .post('/api/favorites')
+        .send(fave)
+        .set('Authorization', token)
+        .expect('Content-Type', /json/)
+        .expect(200);
+
+      expect(data.body).toEqual(myfave);
+    });
+
+    test('return all favs for a given user', async() => {
+      const data = await fakeRequest(app)
+        .get('/api/favorites')
+        .set('Authorization', token)
+        .expect('Content-Type', /json/)
+        .expect(200);
+
+      expect(data.body[0]).toEqual(myfave);
+    });
+
+    test('deletes a favorite', async() => {
+      const data = await fakeRequest(app)
+        .delete('./api/favorite/4')
+        .set('Authorization', token)
+        .expect('Content-Type', /json/)
+        .expect(200);
+
+      expect(data.body).toEqual([]);
+      
+    });
+
   });
 });

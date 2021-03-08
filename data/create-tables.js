@@ -21,6 +21,7 @@ async function run() {
                     id SERIAL PRIMARY KEY NOT NULL,
                     name VARCHAR(512) NOT NULL,
                     race VARCHAR(512) NOT NULL,
+                    img VARCHAR(512) NOT NULL,
                     flavors TEXT[] NOT NULL,
                     positive TEXT[] NOT NULL,
                     negative TEXT[] NOT NULL,
