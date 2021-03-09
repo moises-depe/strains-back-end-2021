@@ -28,7 +28,7 @@ async function run() {
       favorites.map(favorite => {
         return client.query(`
                     INSERT INTO favorites (name, race, img, flavors, positive, negative, medical, description, owner_id)
-                    VALUES ($1, $2, $3, ARRAY[$4], ARRAY[$5], ARRAY[$6], ARRAY[$7], $8, $9);
+                    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9);
                 `,
         [favorite.name, favorite.race, favorite.img, favorite.flavors, favorite.positive, favorite.negative, favorite.medical, favorite.description, user.id]);
       })

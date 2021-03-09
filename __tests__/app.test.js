@@ -63,16 +63,26 @@ describe('app routes', () => {
       expect(data).toEqual(test.body[0]);
 
     });
-    test.only('make a new favorite', async() => {
+    test('make a new favorite', async() => {
+      const fav = {
+        name: 'hello',
+        race: 'hybrid',
+        img: 'http://www.placekitten.com/300/300',
+        flavors: ['blue', 'grape', 'dry'],
+        positive: ['happy', 'funny', 'cool'],
+        negative: ['sad', 'dizzy'],
+        medical: ['stress', 'insomnia'],
+        description: 'hello there'
+      };
 
       const data = await fakeRequest(app)
         .post('/api/favorites')
-        .send(fave)
+        .send(fav)
         .set('Authorization', token)
         .expect('Content-Type', /json/)
         .expect(200);
 
-      expect(data.body).toEqual(myfave);
+      expect(data.body[0]).toEqual(myfave);
     });
 
     test('return all favs for a given user', async() => {
